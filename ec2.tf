@@ -7,7 +7,7 @@ module "ec2_instance" {
 
   name                 = "ec2-mongo"
   instance_type        = "t2.micro"
-  ami                  = "ami-0e1bed4f06a3b463d" # Ubuntu 22.04 LTS
+  ami                  = "ami-05803413c51f242b7" # Ubuntu 16.04 LTS - an intentionally old version
   key_name             = var.key_pair_name
   subnet_id            = module.vpc.private_subnets[0]
   iam_instance_profile = aws_iam_instance_profile.admin_profile.name
@@ -36,7 +36,7 @@ module "ec2_instance" {
         echo "use admin" >> /tmp/mongo-setup.js
         echo "db.createUser({ user: '${var.mongo_user}', pwd: '${var.mongo_password}', roles: ['root'] })" >> /tmp/mongo-setup.js
         echo "db.createCollection('reasons')" >> /tmp/mongo-setup.js
-        echo "db.reasons.insertMany([{reason: 'SOMEone wanted this updated'}, {reason: 'Everything is built as code with Terraform. How cool is that?'}, {reason: 'These reasons are queried from Mongo running on EC2'}, {reason: 'He would add yet another person to the team!'}, {reason: 'He was obsessed with weird stuff as a kid! Coincidence?'}])" >> /tmp/mongo-setup.js
+        echo "db.reasons.insertMany([{reason: 'SOMEone wanted this updated'}, {reason: 'Everything is built as code with Terraform. Or is it? Tune in next time to find out!'}, {reason: 'These reasons are queried from Mongo running on EC2'}, {reason: 'He would add yet another person to the team!'}, {reason: 'He liked to collect belly button lint.'}])" >> /tmp/mongo-setup.js
         mongosh < /tmp/mongo-setup.js
         rm /tmp/mongo-setup.js
 
