@@ -1,4 +1,4 @@
-# Infrastructure for Web App Running on AWS EKS
+# Infrastructure for Three-Tier App Hosted on AWS
 
 This repository sets up the required infrastructure to deploy a containerized NextJS web application to AWS EKS which interacts with MongoDB running on an EC2 instance.
 
