@@ -7,7 +7,7 @@ module "ec2_instance" {
 
   name                 = "ec2-mongo"
   instance_type        = "t2.micro"
-  ami                  = "ami-0b0ea68c435eb488d" # Ubuntu 16.04 LTS - an intentionally old version
+  ami                  = "ami-0fea31578248bcd6c" # Ubuntu 18.04 LTS - an intentionally old version
   key_name             = var.key_pair_name
   subnet_id            = module.vpc.private_subnets[0]
   iam_instance_profile = aws_iam_instance_profile.admin_profile.name
